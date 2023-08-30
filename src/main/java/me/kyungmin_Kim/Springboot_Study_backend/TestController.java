@@ -5,8 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
+
+    @Autowired //TestService 빈 주입.
+    TestService testService;
+
     @GetMapping("/test")
-    public String test(){
-        return "hello world";
+    public List<Member> getAllMember(){
+        List<Member> members = testService.getAllMember();
+        return members;
     }
 }
